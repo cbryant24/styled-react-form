@@ -7,7 +7,7 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 });
 
 module.exports = [{
-  name: 'styled-react-forms-npm',
+  name: 'styled-react-form-npm',
   entry: path.join(__dirname, "./lib/index.js"),
   devtool: 'source-map',
   output: {
@@ -40,7 +40,7 @@ module.exports = [{
   },
 },
 {
-  name: 'styled-react-forms-dev',
+  name: 'styled-react-form-dev',
   context: path.join(__dirname, "./src"),
   entry: path.join(__dirname, "./src/index.js"),
   devtool: 'source-map',

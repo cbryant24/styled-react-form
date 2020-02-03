@@ -94,8 +94,6 @@ export default (props) => {
     { text: 'Cancel', type: 'cancel', cb: clickedMe, style: {...squareButton} }
   ];
 
-  /////// CREATIN SCHEMA
-
   const validate = {
     title: 'signin',
     description: 'User Signin',
@@ -130,9 +128,6 @@ export default (props) => {
       password: 'There was an error in the password field'
     }
   }
-
-  ////// END CREATING SCHEMA
-
 
   return (
     <Form

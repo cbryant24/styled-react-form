@@ -1,17 +1,14 @@
 {
-  "name": "@cbryant24/styled-react-forms",
+  "name": "@cbryant24/styled-react-form",
   "version": "1.0.0",
   "description": "This form library also performs validation on input keystroke, blur, dirty, and submit. To use in schema explicitly import patterns `{ patterns }`.",
   "main": "dist/index.js",
-  "private": true,
   "scripts": {
-    "start": "webpack-dev-server --mode development --config-name styled-react-forms-dev",
+    "start": "webpack-dev-server --mode development --config-name styled-react-form-dev",
     "test": "jest --config ./jest.config.json",
-    "test:watch": "npm run test -- --watch",
-    "build": "webpack --config-name styled-react-forms-npm --mode production",
-    "deploy": "gh-pages -d examples/dist",
-    "publish-demo": "npm run build && npm run deploy",
-    "prepublishOnly": "npm run transpile"
+    "test:watch": "npm run test --watch",
+    "prepublishOnly": "npm run transpile",
+    "build": "webpack --config-name styled-react-form-npm --mode production"
   },
   "author": "",
   "license": "ISC",
