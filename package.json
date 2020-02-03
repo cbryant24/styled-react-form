@@ -1,13 +1,12 @@
 {
   "name": "@cbryant24/styled-react-form",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "This form library also performs validation on input keystroke, blur, dirty, and submit. To use in schema explicitly import patterns `{ patterns }`.",
   "main": "dist/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --config-name styled-react-form-dev",
     "test": "jest --config ./jest.config.json",
     "test:watch": "npm run test --watch",
-    "prepublishOnly": "npm run transpile",
     "build": "webpack --config-name styled-react-form-npm --mode production"
   },
   "author": "",
@@ -23,18 +22,20 @@
     "@styled-system/theme-get": "^5.1.1",
     "@types/styled-system": "^5.0.1",
     "ajv": "^6.9.1",
-    "ajv-errors": "^1.0.1"
+    "ajv-errors": "^1.0.1",
+    "@cbryant24/styled-react": "^0.0.2"
   },
   "devDependencies": {
-    "ajv": "^6.9.1",
-    "ajv-errors": "^1.0.1",
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
+    "@cbryant24/styled-react": "0.0.2",
     "@styled-system/css": "^5.0.23",
     "@styled-system/theme-get": "^5.1.1",
     "@types/styled-system": "^5.0.1",
+    "ajv": "^6.9.1",
+    "ajv-errors": "^1.0.1",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
     "clean-element": "^1.0.0",

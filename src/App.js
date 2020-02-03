@@ -1,14 +1,12 @@
 import React from 'react';
-import Form from '@cbryant24/styled-react-forms';
+import Form from '@cbryant24/styled-react-form';
 
 export default (props) => {
   function alertMe(val, e) {
-    debugger
     alert('Ive been submitted');
   }
 
   function clickedMe(val, e) {
-    debugger
     alert('Ive been clicked');
   }
 
