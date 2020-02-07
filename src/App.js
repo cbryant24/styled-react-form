@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from '@cbryant24/styled-react-form';
+import { Div } from '@cbryant24/styled-react';
 
 export default (props) => {
   function alertMe(val, e) {
@@ -77,7 +78,7 @@ export default (props) => {
   const inputs = [
     {
       data: { type: 'email', name: 'email', label: 'email', placeholder: 'enter email', required: true },
-      fieldStyle: { width: '100%', height: '15%', justifyContent: 'space-between', flexDirection: 'column'},
+      fieldStyle: { themeStyle: 'fieldMain' },
       inputStyle: {...inputNormal}
     },
     {
@@ -128,13 +129,15 @@ export default (props) => {
   }
 
   return (
-    <Form
-      form={form}
-      inputs={inputs}
-      buttons={buttons}
-      validate={validate}
-      onSubmit={alertMe}
-    />
+    <Div>
+      <Form
+        form={form}
+        inputs={inputs}
+        buttons={buttons}
+        validate={validate}
+        onSubmit={alertMe}
+      />
+    </Div>
   );
 }
 

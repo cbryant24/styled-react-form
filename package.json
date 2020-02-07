@@ -1,6 +1,6 @@
 {
   "name": "@cbryant24/styled-react-form",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "This form library also performs validation on input keystroke, blur, dirty, and submit. To use in schema explicitly import patterns `{ patterns }`.",
   "main": "dist/index.js",
   "scripts": {
