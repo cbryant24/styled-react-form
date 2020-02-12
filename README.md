@@ -1,11 +1,12 @@
 # Styled React Forms
 
-------------------------
+---
+
 This library is for creating and styling React forms using `styled-react` [library](https://github.com/cbryant24/styled-react) css-in-js styling. Validation can be performed on input keystroke, blur, dirty, and submit. Using JSON-Schema Validation for more information see [here](https://tools.ietf.org/html/draft-handrews-json-schema-validation-00) if form validation is needed for more info see section on [validation](#Validation)
 
 ## Getting Started
 
-------------------------
+---
 
 `npm install @cbryant24/styled-react-forms`
 
@@ -17,7 +18,7 @@ import Form from '@cbryant24/styled-react-forms';
 
 ### Form
 
-------------------------
+---
 
 The form component takes the following props: `form`, `inputs`, `validate`, `onSubmit`, `buttons`
 
@@ -34,12 +35,11 @@ The data object has two properties `name` which must be unique and `cb` a callba
 
 ```javascript
 const form = {
-  data:
-    {
-      name: String[required],
-      cb: Function[optional]
-    }
-}
+  data: {
+    name: String[required],
+    cb: Function[optional]
+  }
+};
 ```
 
 ##### style
@@ -138,20 +138,30 @@ const inputs = [
 
 The `buttons` prop taks an array of objects that describe each button the form will display. Each button object takes the properties `text, type, cb, style`
 
+The submit button is set to disabled if using form validation and the color styled to reflect disabled state with color set to `grey`.
+
+To style the disabled state pass the disabled styles in the `disabledStyles` property
+
 `text: a string value with the text to be displayed in the button`
 `type: a string value the the type of button it is i.e. submit, cancel`
 `cb: a function to be invoked when the button is clicked`
 `style: an object of css camelcase properites to styled the button`
+`disabledStyles: an object of css camelcase properites to styled the submit button when disabled`
 
 ```javascript
 const buttons = [
   {
-    text: 'Cancel',
-    type: 'cancel',
-    cb: cancelcb,
+    text: 'Submit',
+    type: 'submit',
+    cb: onSubmit,
     style: 'squareButton' // if using theming
+    disabledStyle: {
+      color: 'gray',
+      cursor: 'default',
+      padding: '10px 20px'
+    }
   }
-]
+];
 ```
 
 #### onSubmit
@@ -162,10 +172,9 @@ The onSubmit prop takes a function that will be invoked when the form is submitt
 
 See the section [About Validation](#validation)
 
-
 ## Validation
 
-------------------------
+---
 
 Styled React forms provides form validation using JSON schema validation [see ajv for more detailed info](https://ajv.js.org/keywords.html)
 
@@ -247,6 +256,96 @@ const validate = {
 }
 ```
 
+##### match
+
+To validate for two matching fields use the property `match` in the validation field object with the name of the field to match with
+
+```javascript
+const validate = {
+  ...
+  submit: [
+    {
+      name: 'password',
+      validate: 'safeString',
+    },
+    {
+      name: 'confirm password',
+      match: 'password'
+    }
+  ]
+  ...
+}
+```
+
+##### multiple validations
+
+For submit validating multiple criteria can be passed for validation using an array of validations strings. Use the property `validationType` to specify the typeof the multiple validation with one of the types `not, oneOf, anyOf, allOf`
+
+`not: the type or value that will not be valid`
+
+```javascript
+const validation = {
+  ...
+  submit: {
+
+    name: 'password',
+    validationType: 'allof',
+    validate: [
+      'safeStringSpaces',
+      'number'
+    ]
+  }
+  ...
+}
+```
+
+`valid:`
+
+`oneOf: as long as the value passes exactly one of the supplied validation the input value is valid`
+
+```javascript
+const validation = {
+  ...
+  submit: {
+
+  }
+  ...
+}
+```
+
+`valid:`
+
+`anyOf: as long as the value passes any of the supplied validations the input value is valid - this is the default if none is provided`
+
+```javascript
+const validation = {
+  ...
+  submit: {
+
+  }
+  ...
+}
+```
+
+`valid:`
+
+```javascript
+```
+
+`allOf: as long as the value passes all ot the supplied validations the input vaule is valid`
+
+```javascript
+const validation = {
+  ...
+  submit: {
+
+  }
+  ...
+}
+```
+
+`valid:`
+
 #### submitErrorMessages
 
 Is an object that has the corresponding property name of the submit `name` field for submit [see above](#submit:-name) with a string error message do be displayed when error validation fails in the specified field
@@ -263,43 +362,44 @@ const validate = {
 
 #### sample
 
-------------------------
+---
 
 ```javascript
 const scheme = {
-    title: 'signup',
-    description: 'User Signin',
-    inputs: [
-      {
-        name: 'email',
-        blur: 'emptyOrEmail',
-        change: 'emptyOrSafeString'
-      },
-      {
-        name: 'password',
-        blur: 'emptyOrSafeString',
-        change: 'emptyOrSafeString'
-      }
-    ],
-    inputErrorMessages: {
-        email: 'Email should be in email format',
-        password: 'Password should only contain letters, numbers, and ! @ # $ % characters'
+  title: 'signup',
+  description: 'User Signin',
+  inputs: [
+    {
+      name: 'email',
+      blur: 'emptyOrEmail',
+      change: 'emptyOrSafeString'
     },
-    submit: [
-      {
-        name: 'email',
-        validate: 'safeString'
-      },
-      {
-        name: 'password',
-        validate: 'safeString',
-      },
-    ],
-    submitErrorMessages: {
-      email: 'There was an error in the email field',
-      password: 'There was an error in the password field'
+    {
+      name: 'password',
+      blur: 'emptyOrSafeString',
+      change: 'emptyOrSafeString'
     }
+  ],
+  inputErrorMessages: {
+    email: 'Email should be in email format',
+    password:
+      'Password should only contain letters, numbers, and ! @ # $ % characters'
+  },
+  submit: [
+    {
+      name: 'email',
+      validate: 'safeString'
+    },
+    {
+      name: 'password',
+      validate: 'safeString'
+    }
+  ],
+  submitErrorMessages: {
+    email: 'There was an error in the email field',
+    password: 'There was an error in the password field'
   }
+};
 ```
 
 ##### validation options
@@ -307,30 +407,34 @@ const scheme = {
 ###### Empty or Safe String With Spaces
 
 name: `emptyOrSafeStringSpaces`
-Description: Allows empty string, spaces, letters, numbers, and the following characters: @*!.$
+Description: Allows empty string, spaces, letters, numbers, and the following characters: @\*!.$
 Matches: '', Kanye West, a$ap Rocky, her.
 Non-Matches: /Carl, 'john', George ; Michael
 
 ###### Empty or Safe String
 
 name: `emptyOrSafeString`
-Description: Allows empty string, letters, numbers, and the following characters: @*!.$
+Description: Allows empty string, letters, numbers, and the following characters: @\*!.$
 Matches: '', Kanye, a$ap, her.
 Non-Matches: /Carl, 'john', Kanye West
 
 ###### Safe String
 
 name: `safeString`
-Description: Allows letters, numbers, and the following characters: @*!.$
+Description: Allows letters, numbers, and the following characters: @\*!.$
 Matches: Kanye, a$ap, her.
 Non-Matches: /Carl, 'john', Kanye West
 
 ###### Safe String With Spaces
 
 name: `safeStringSpaces`
-Description: Allows spaces, letters, numbers, and the following characters: @*!.$
+Description: Allows spaces, letters, numbers, and the following characters: @\*!.$
 Matches: Kanye, a$ap, her.
 Non-Matches: /Carl, 'john', Kanye West
+
+###### Match
+
+name: `match`
 
 ### Default Validations
 
