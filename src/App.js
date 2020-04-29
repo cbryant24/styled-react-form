@@ -15,16 +15,9 @@ export default props => {
   const form = {
     data: { name: 'signup', cb: null },
     style: {
-      display: 'flex',
-      height: '100%',
-      justifyContent: 'space-evenly',
-      flexDirection: 'column',
-      backgroundColor: 'blue',
-      color: 'red',
-      border: '1px solid black',
-      width: '40rem',
-      padding: '1rem',
-      zIndex: 20
+      themeStyle: 'authForm',
+      remove: 'height',
+      height: '95%'
     }
   };
 

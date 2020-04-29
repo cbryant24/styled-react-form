@@ -1,6 +1,6 @@
 {
   "name": "@cbryant24/styled-react-form",
-  "version": "0.0.19",
+  "version": "0.0.36",
   "description": "This form library also performs validation on input keystroke, blur, dirty, and submit. To use in schema explicitly import patterns `{ patterns }`.",
   "main": "dist/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
-    "@cbryant24/styled-react": "latest",
+    "@cbryant24/styled-react": "0.0.40",
     "@styled-system/css": "^5.0.23",
     "@styled-system/theme-get": "^5.1.1",
     "@types/styled-system": "^5.0.1",

@@ -1,8 +1,16 @@
 export const authForm = {
-  display: 'flex',
-  height: ['40em', ],
   border: '1px solid white',
-  p: [4]
+  p: [4],
+  display: 'flex',
+  height: '80%',
+  justifyContent: 'space-evenly',
+  flexDirection: 'column',
+  backgroundColor: 'blue',
+  color: 'red',
+  border: '1px solid black',
+  width: '40rem',
+  padding: '1rem',
+  zIndex: 20
 }
 
 export const inputMain = {
@@ -15,6 +23,7 @@ export const inputMain = {
   lineHeight: 'inherit',
   letterSpacing: 'inherit',
   fontFamily: 'inherit',
+  fontSize: [1],
   backgroundColor: 'transparent',
   borderRadius: '5px',
   borderWidth: '2px',
