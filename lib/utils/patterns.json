@@ -4,142 +4,192 @@
   "description": "JSON Schema Validation Defs",
   "type": "object",
   "definitions": {
-      "emptyOrEmail": {
-        "anyOf": [
-          { 
-            "type": "string", 
-            "pattern": "^$"
-          },
-          {
-            "type": "string",
-            "format": "email",
-            "allOf": [
-              { "maxLength": { "$data": "1/maxLength" }},
-              { "maxLength": 128 },
-              { "minLength": { "$data": "1/minLength" }}
-            ]
-          }
-        ]
-      },
-      "emptyOrSafeStringSpaces": {
-        "anyOf": [
-          { 
-            "type": "string", 
-            "pattern": "^$"
-          },
-          { "type": "string", 
-            "pattern": "^[a-zA-Z0-9@*!$.\\s]+$",
-            "allOf": [
-              { "maxLength": { "$data": "1/maxLength" }},
-              { "maxLength": 128 },
-              { "minLength": { "$data": "1/minLength" }}
-            ]
-          }
-        ]
-      },
-      "emptyOrSafeString": {
-        "anyOf": [
-          {
-            "type": "string", 
-            "pattern": "^$",
-            "allOf": [
-              { "maxLength": { "$data": "1/maxLength" }},
-              { "maxLength": 128 }
-            ]
-          },
-          { 
-            "type": "string", 
-            "pattern": "^[a-zA-Z0-9@*#!$.]+$",
-            "allOf": [
-              { "maxLength": { "$data": "1/maxLength" }},
-              { "maxLength": 128 },
-              { "minLength": { "$data": "1/minLength" }}
-            ]
-          }
-        ]
-      },
-      "emptyOrSafeStringSingleChar": {
-        "anyOf": [
-          {
-            "type": "string", 
-            "pattern": "^$",
-            "allOf": [
-              { "maxLength": { "$data": "1/maxLength" }},
-              { "maxLength": 1 }
-            ]
-          },
-          { 
-            "type": "string", 
-            "pattern": "^[a-zA-Z0-9@*#!$.]+$",
-            "allOf": [
-              { "maxLength": { "$data": "1/maxLength" }},
-              { "maxLength": 1 },
-              { "minLength": { "$data": "1/minLength" }}
-            ]
-          }
-        ]
-      },
-      "emptyOrSafeStringSingleCharABCD": {
-        "anyOf": [
-          {
-            "type": "string", 
-            "pattern": "^$",
-            "allOf": [
-              { "maxLength": { "$data": "1/maxLength" }},
-              { "maxLength": 1 }
-            ]
-          },
-          { 
-            "type": "string", 
-            "pattern": "^[a-dA-D]$",
-            "allOf": [
-              { "maxLength": 1},
-              { "minLength": 1}
-            ]
-          }
-        ]
-      },
-      "safeString": {
-        "type": "string", 
-        "pattern": "^[a-zA-Z0-9@*#!$.]+$",
-        "maxLength": 128,
-        "minLength": 1 
-      },
-      "safeStringSingleChar": {
-        "type": "string", 
-        "pattern": "^[a-zA-Z0-9@*#!$.]+$",
-        "maxLength": 1,
-        "minLength": 1 
-      },
-      "safeStringSingleCharABCD": {
-        "type": "string", 
-        "pattern": "^[a-dA-D]$",
-        "maxLength": 1,
-        "minLength": 1 
-      },
-      "safeStringSpaces": {
-        "type": "string", 
-        "pattern": "^[a-zA-Z0-9@*!$.\\s]+$",
-        "maxLength": 128,
-        "minLength": 1
-      },
-      "safeStringEmail": {
-        "type": "string", 
-        "format": "email",
-        "maxLength": 128,
-        "minLength": 1 
-      },
-      "numbers": { 
-        "type": ["string", "integer"],
-        "pattern": "^[0-9]*$"
-      },
-      "anyString": { 
-        "type": "string",
-        "maxLength": 1
-      },
-      "maxOfLength": {
-        "type": "number",
-        "maxLength": 2
-      }
+    "emptyOrEmail": {
+      "anyOf": [{
+          "type": "string",
+          "pattern": "^$"
+        },
+        {
+          "type": "string",
+          "format": "email",
+          "allOf": [{
+              "maxLength": {
+                "$data": "1/maxLength"
+              }
+            },
+            {
+              "maxLength": 128
+            },
+            {
+              "minLength": {
+                "$data": "1/minLength"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "emptyOrSafeStringSpaces": {
+      "anyOf": [{
+          "type": "string",
+          "pattern": "^$"
+        },
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9@*!$.\\s]+$",
+          "allOf": [{
+              "maxLength": {
+                "$data": "1/maxLength"
+              }
+            },
+            {
+              "maxLength": 128
+            },
+            {
+              "minLength": {
+                "$data": "1/minLength"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "emptyOrSafeString": {
+      "anyOf": [{
+          "type": "string",
+          "pattern": "^$",
+          "allOf": [{
+              "maxLength": {
+                "$data": "1/maxLength"
+              }
+            },
+            {
+              "maxLength": 128
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9@*#!$.]+$",
+          "allOf": [{
+              "maxLength": {
+                "$data": "1/maxLength"
+              }
+            },
+            {
+              "maxLength": 128
+            },
+            {
+              "minLength": {
+                "$data": "1/minLength"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "emptyOrSafeStringSingleChar": {
+      "anyOf": [{
+          "type": "string",
+          "pattern": "^$",
+          "allOf": [{
+              "maxLength": {
+                "$data": "1/maxLength"
+              }
+            },
+            {
+              "maxLength": 1
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9@*#!$.]+$",
+          "allOf": [{
+              "maxLength": {
+                "$data": "1/maxLength"
+              }
+            },
+            {
+              "maxLength": 1
+            },
+            {
+              "minLength": {
+                "$data": "1/minLength"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "emptyOrSafeStringSingleCharABCD": {
+      "anyOf": [{
+          "type": "string",
+          "pattern": "^$",
+          "allOf": [{
+              "maxLength": {
+                "$data": "1/maxLength"
+              }
+            },
+            {
+              "maxLength": 1
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "pattern": "^[a-dA-D]$",
+          "allOf": [{
+              "maxLength": 1
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        }
+      ]
+    },
+    "safeString": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9@*#!$.]+$",
+      "maxLength": 128,
+      "minLength": 1
+    },
+    "safeStringSingleChar": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9@*#!$.]+$",
+      "maxLength": 1,
+      "minLength": 1
+    },
+    "safeStringSingleCharABCD": {
+      "type": "string",
+      "pattern": "^[a-dA-D]$",
+      "maxLength": 1,
+      "minLength": 1
+    },
+    "safeStringSpaces": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9@*!$.\\s]+$",
+      "maxLength": 128,
+      "minLength": 1
+    },
+    "safeStringEmail": {
+      "type": "string",
+      "format": "email",
+      "maxLength": 128,
+      "minLength": 1
+    },
+    "numbers": {
+      "type": ["string", "integer"],
+      "pattern": "^[0-9]*$"
+    },
+    "anyString": {
+      "type": "string",
+      "maxLength": 1
+    },
+    "maxOfLength": {
+      "type": "number",
+      "maxLength": 2
+    }
   }
 }

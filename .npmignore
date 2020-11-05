@@ -1,0 +1,7 @@
+.local-notes.md
+src
+lib
+.babelrc
+jest.config.json
+webpack.config.js
+.jshintrc
