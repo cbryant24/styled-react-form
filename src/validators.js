@@ -32,7 +32,7 @@ export const validate = {
   submit: [
     {
       name: 'email',
-      validate: 'safeStringSpaces'
+      validate: 'safeStringEmail'
     },
     {
       name: 'name',
