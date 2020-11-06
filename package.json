@@ -1,6 +1,6 @@
 {
   "name": "@cbryant24/styled-react-form",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This form library also performs validation on input keystroke, blur, dirty, and submit. To use in schema explicitly import patterns `{ patterns }`.",
   "main": "dist/index.js",
   "scripts": {
@@ -12,6 +12,11 @@
   },
   "author": "",
   "license": "ISC",
+  "homepage": "https://github.com/cbryant24/styled-react-form",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/cbryant24/styled-react-form"
+  },
   "peerDependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
